@@ -7,6 +7,14 @@ const password_icon = require("./Assets/password.png");
 
 const LogIn = () => {
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const logIn = (): void => {
+        console.log(email);
+        console.log(password);
+    }
+
     return (
         <div className='container'>
             <div className='header'>
@@ -17,18 +25,18 @@ const LogIn = () => {
             <div className="inputs">
                 <div className="input">
                     <img src={email_icon} alt="" />
-                    <input className="form-control" type="email" placeholder='Email'/>
+                    <input className="form-control" type="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
                 </div>
 
                 <div className="input">
                     <img src={password_icon} alt="" />
-                    <input className="form-control" type="password" placeholder='Password'/>
+                    <input className="form-control" type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password}/>
                 </div>
             </div>
             <div className="forgot-password">Lost password? <span>Click here.</span></div>
             <div className="not-a-user">Not a User? <span>Sign Up.</span></div>
             <div className="submit-container">
-                <button className="submit btn btn-lg btn-primary" type="button">Log In</button>
+                <button className="submit btn btn-lg btn-primary" type="button" onClick={() => logIn()}>Log In</button>
             </div>
         </div>
       );
