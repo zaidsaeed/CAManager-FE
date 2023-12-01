@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './LogIn.css';
+import axios from 'axios';
 
 const user_icon = require("./Assets/person.png");
 const email_icon = require("./Assets/email.png");
@@ -10,9 +11,15 @@ const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const logIn = (): void => {
+    const logIn = async (): Promise<void> => {
         console.log(email);
         console.log(password);
+        await axios.get(`https://camanager.onrender.com/api/v1/users/${email}`)
+            .then(res => {
+                console.log("res", res);
+            }).catch(err => {
+                console.log("err", err);
+            })
     }
 
     return (
