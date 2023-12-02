@@ -1,25 +1,27 @@
 import React, {useState} from 'react';
 import './LogIn.css';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
-const user_icon = require("./Assets/person.png");
 const email_icon = require("./Assets/email.png");
 const password_icon = require("./Assets/password.png");
 
-const LogIn = () => {
 
+const LogIn = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const logIn = async (): Promise<void> => {
         console.log(email);
         console.log(password);
-        await axios.get(`https://camanager.onrender.com/api/v1/users/${email}`)
+        await axios.get(`http://localhost:3000/api/v1/users/${email}`)
             .then(res => {
                 console.log("res", res);
+                return navigate("/home");
             }).catch(err => {
                 console.log("err", err);
-            })
+            });
     }
 
     return (
