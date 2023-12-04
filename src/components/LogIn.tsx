@@ -20,7 +20,7 @@ const LogIn = () => {
         await axios.get(`${API_URL}/api/v1/users/${email}`)
             .then(res => {
                 console.log("res", res);
-                return navigate("/home");
+                return navigate("/CAManager-FE/home");
             }).catch(err => {
                 console.log("err", err);
             });
