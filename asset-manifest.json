@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CAManager-FE/static/css/main.b52bd96e.css",
-    "main.js": "/CAManager-FE/static/js/main.05c6dde8.js",
+    "main.js": "/CAManager-FE/static/js/main.f0687fcc.js",
     "static/js/787.d4aba7ab.chunk.js": "/CAManager-FE/static/js/787.d4aba7ab.chunk.js",
     "index.html": "/CAManager-FE/index.html",
     "main.b52bd96e.css.map": "/CAManager-FE/static/css/main.b52bd96e.css.map",
-    "main.05c6dde8.js.map": "/CAManager-FE/static/js/main.05c6dde8.js.map",
+    "main.f0687fcc.js.map": "/CAManager-FE/static/js/main.f0687fcc.js.map",
     "787.d4aba7ab.chunk.js.map": "/CAManager-FE/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b52bd96e.css",
-    "static/js/main.05c6dde8.js"
+    "static/js/main.f0687fcc.js"
   ]
 }
