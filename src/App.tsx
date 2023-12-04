@@ -17,15 +17,15 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path="/CAManager-FE"
+            path="/"
             element={<LogIn/>}
           />
           <Route
-            path="/CAManager-FE/LoginSignUp"
+            path="//LoginSignUp"
             element={<LoginSignUp/>}
           />
           <Route 
-            path="/CAManager-FE/home"
+            path="/home"
             element={<HomePage/>}
           />
         </Routes>
