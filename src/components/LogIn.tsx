@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 const email_icon = require("./Assets/email.png");
 const password_icon = require("./Assets/password.png");
 
+const API_URL = "https://camanager.onrender.com";
+
 
 const LogIn = () => {
     const navigate = useNavigate();
@@ -15,7 +17,7 @@ const LogIn = () => {
     const logIn = async (): Promise<void> => {
         console.log(email);
         console.log(password);
-        await axios.get(`http://localhost:3000/api/v1/users/${email}`)
+        await axios.get(`${API_URL}/api/v1/users/${email}`)
             .then(res => {
                 console.log("res", res);
                 return navigate("/home");
