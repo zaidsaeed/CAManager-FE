@@ -21,7 +21,7 @@
 }
 
 .underline {
-    width: 61px;
+    width: 25%;
     height: 6px;
     background: #1aa0fa;
     border-radius: 9px;
@@ -60,9 +60,8 @@
     font-size: 18px;
 }
 
-.login-text span {
-    color: #4c00b4;
-    cursor: pointer;
+.login-text a {
+    text-decoration: none;
 }
 
 .submit-container {

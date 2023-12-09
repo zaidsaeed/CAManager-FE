@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
-const HomePage = () => {
+const LandingPage = () => {
 
     return <div>
         <h1>
-            "Homepage"
+            "LandingPage"
         </h1>
     </div>;
 }
  
-export default HomePage;
+export default LandingPage;

@@ -1,35 +1,30 @@
 import React from 'react';
 
-import HomePage from "./components/HomePage";
-import LoginSignUp from './components/LoginSignup';
+import LandingPage from "./components/LandingPage";
 import LogIn from './components/LogIn';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import ManagerSignup from './components/Signup';
+import Signup from './components/Signup';
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route
+          <Route 
             path="/"
+            element={<LandingPage/>}
+          />
+          <Route
+            path="/login"
             element={<LogIn/>}
           />
           <Route
-            path="/LoginSignUp"
-            element={<LoginSignUp/>}
-          />
-          <Route 
-            path="/home"
-            element={<HomePage/>}
-          />
-          <Route
-            path="/managerSignup"
-            element={<ManagerSignup/>}
+            path="/signup"
+            element={<Signup/>}
           />
         </Routes>
       </Router>
