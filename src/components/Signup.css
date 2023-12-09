@@ -1,0 +1,81 @@
+.su-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background: #fff;
+    width: 600px;
+}
+
+.su-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.su-text {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.su-underline {
+    width: 50%;
+    height: 6px;
+    background: #1aa0fa;
+    border-radius: 9px;
+}
+
+.su-inputs {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.su-input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 80px;
+    border-radius: 6px;
+}
+
+.su-input img {
+    margin: 0px 30px;
+}
+
+.su-input input {
+    height: 50px;
+    width: 400px;
+    font-size: 19px;
+}
+
+.su-btn-group {
+    padding-left: 62px;
+    margin-top: 27px;
+    color: #797979;
+    font-size: 18px;
+}
+
+.su-submit-container {
+    display: flex;
+    gap: 30px;
+    margin: 40px auto;
+}
+
+.su-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 59px;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+} 
+

@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ManagerSignup from './components/Signup';
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           <Route 
             path="/home"
             element={<HomePage/>}
+          />
+          <Route
+            path="/managerSignup"
+            element={<ManagerSignup/>}
           />
         </Routes>
       </Router>
