@@ -17,7 +17,7 @@ const LogIn = () => {
     const logIn = async (): Promise<void> => {
         console.log(email);
         console.log(password);
-        await axios.get(`${API_URL}/api/v1/users/${email}`)
+        await axios.get(`${API_URL}/api/v1/managers?email=${email}`)
             .then(res => {
                 console.log("res", res);
                 return navigate("/home");
