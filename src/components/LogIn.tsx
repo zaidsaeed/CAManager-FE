@@ -35,17 +35,17 @@ const LogIn = () => {
 
             <div className="inputs">
                 <div className="input">
-<img src={email_icon} alt="" />
+                    <img src={email_icon} alt="" />
                     <input className="form-control" type="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
                 </div>
 
                 <div className="input">
-<img src={password_icon} alt="" />
+                    <img src={password_icon} alt="" />
                     <input className="form-control" type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password}/>
                 </div>
             </div>
             <div className="login-text">Lost password? <a href="#">Click here.</a></div>
-            <div className="login-text">Not a User? <a href="#">Sign Up.</a></div>
+            <div className="login-text">Not a User? <a href="#" onClick={() => navigate("/signup")}>Sign Up.</a></div>
             <div className="submit-container">
                 <button className="submit btn btn-lg btn-primary" type="button" onClick={() => logIn()}>Log In</button>
             </div>
