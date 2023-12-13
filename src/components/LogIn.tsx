@@ -8,22 +8,41 @@ const password_icon = require("./Assets/password.png");
 
 const API_URL = "https://camanager.onrender.com";
 
+const ACCOUNT_TYPE_MANAGER = "MANAGER";
+const ACCOUNT_TYPE_ATHLETE = "ATHLETE";
 
 const LogIn = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [accountType, setAccountType] = useState(ACCOUNT_TYPE_MANAGER);
+    const [error, setError] = useState("");
+
 
     const logIn = async (): Promise<void> => {
         console.log(email);
         console.log(password);
-        await axios.get(`${API_URL}/api/v1/managers?email=${email}`)
+        if (accountType === ACCOUNT_TYPE_ATHLETE) {
+            await axios.get(`${API_URL}/api/v1/athletes?email=${email}`)
             .then(res => {
                 console.log("res", res);
-                return navigate("/home");
+                if (res.data.password === password) {
+                    return navigate("/home");
+                } else {
+                    setError("Password is incorrect.")
+                }
             }).catch(err => {
                 console.log("err", err);
             });
+        } else {
+            await axios.get(`${API_URL}/api/v1/managers?email=${email}`)
+                .then(res => {
+                    console.log("res", res);
+                    return navigate("/home");
+                }).catch(err => {
+                    console.log("err", err);
+                });
+        }
     }
 
     return (
@@ -39,9 +58,17 @@ const LogIn = () => {
                     <input className="form-control" type="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/>
                 </div>
 
-                <div className="input">
+                <div className="input has-danger">
                     <img src={password_icon} alt="" />
-                    <input className="form-control" type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password}/>
+                    <input className="form-control is-invalid" type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password}/>
+                    <div className="invalid-feedback">Sorry, that username's taken. Try another?</div>
+                </div>
+
+                <div className="btn-group su-btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" onChange={() => setAccountType(ACCOUNT_TYPE_ATHLETE)} checked={accountType === ACCOUNT_TYPE_ATHLETE}/>
+                    <label className="btn btn-outline-primary" htmlFor="btnradio1">Athlete</label>
+                    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off" onChange={() => setAccountType(ACCOUNT_TYPE_MANAGER)} checked={accountType === ACCOUNT_TYPE_MANAGER}/>
+                    <label className="btn btn-outline-primary" htmlFor="btnradio2">Manager</label>
                 </div>
             </div>
             <div className="login-text">Lost password? <a href="#">Click here.</a></div>
