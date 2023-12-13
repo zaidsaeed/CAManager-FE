@@ -1,0 +1,15 @@
+.wrapper{
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url(./Assets/background.jpg);
+    height: 100vh;
+	background-position: center;
+	background-size: cover; 
+}
+
+.centered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: antiquewhite;
+}
