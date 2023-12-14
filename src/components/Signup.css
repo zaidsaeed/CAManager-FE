@@ -36,26 +36,18 @@
 
 .su-input {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: auto;
-    width: 480px;
-    height: 80px;
-    border-radius: 6px;
-}
-
-.su-input img {
-    margin: 0px 30px;
-}
-
-.su-input input {
-    height: 50px;
+    margin: 0px auto;
     width: 400px;
+    height: 50px;
+    border-radius: 6px;
     font-size: 19px;
 }
 
 .su-btn-group {
-    padding-left: 62px;
-    margin-top: 27px;
+    margin: 40px auto 0px auto;
+    width: 480px;
     color: #797979;
     font-size: 18px;
 }
