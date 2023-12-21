@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import './Signup.css';
 import axios from 'axios';
+import AppContext from '../Context';
 
-const ACCOUNT_TYPE_MANAGER = "MANAGER";
-const ACCOUNT_TYPE_ATHLETE = "ATHLETE";
+
+const ACCOUNT_TYPE_MANAGER = "manager";
+const ACCOUNT_TYPE_ATHLETE = "athlete";
 
 const API_URL = "https://camanager.onrender.com";
 
@@ -16,7 +18,7 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [accountType, setAccountType] = useState(ACCOUNT_TYPE_MANAGER);
     const [error, setError] = useState("");
-
+    const {user, setUser} = useContext(AppContext);
 
     const placeErrorOnInputs = (errorMessage: string): void => {
         setError(errorMessage);
@@ -42,21 +44,14 @@ const SignUp = () => {
             }
         };
 
-        if (accountType === ACCOUNT_TYPE_ATHLETE) {
-            await axios.post(`${API_URL}/api/v1/athletes/`, requestBody, axiosConfig)
-                .then(res => {
-                    return navigate("/home");
-                }).catch(err => {
-                    placeErrorOnInputs(err.response.data)
-                });
-        } else {
-            await axios.post(`${API_URL}/api/v1/managers/`, requestBody, axiosConfig)
-                .then(res => {
-                    return navigate("/home");
-                }).catch(err => {
-                    placeErrorOnInputs(err.response.data)
-                });
-        }
+        await axios.post(`${API_URL}/api/v1/users?type=${accountType}`, requestBody, axiosConfig)
+            .then(res => {
+                setUser(res.data);
+                return navigate("/home");
+            }).catch(err => {
+                placeErrorOnInputs(err.response.data)
+            });
+        
     }
 
     return (
