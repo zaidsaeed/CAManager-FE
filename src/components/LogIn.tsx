@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import './LogIn.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import AppContext from '../Context';
 const API_URL = "https://camanager.onrender.com";
 
-const ACCOUNT_TYPE_MANAGER = "MANAGER";
-const ACCOUNT_TYPE_ATHLETE = "ATHLETE";
+const ACCOUNT_TYPE_MANAGER = "manager";
+const ACCOUNT_TYPE_ATHLETE = "athlete";
 
 const LogIn = () => {
     const navigate = useNavigate();
@@ -14,6 +14,7 @@ const LogIn = () => {
     const [password, setPassword] = useState("");
     const [accountType, setAccountType] = useState(ACCOUNT_TYPE_MANAGER);
     const [error, setError] = useState("");
+    const {user, setUser} = useContext(AppContext);
 
     const placeErrorOnInputs = (errorMessage: string): void => {
         setError(errorMessage);
@@ -25,10 +26,10 @@ const LogIn = () => {
     };
 
     const logIn = async (): Promise<void> => {
-        if (accountType === ACCOUNT_TYPE_ATHLETE) {
-            await axios.get(`${API_URL}/api/v1/athletes?email=${email}`)
+        await axios.get(`${API_URL}/api/v1/users?email=${email}`)
             .then(res => {
                 if (res.data.password === password) {
+                    setUser(res.data);
                     return navigate("/home");
                 } else {
                     placeErrorOnInputs("Password is incorrect.")
@@ -36,18 +37,6 @@ const LogIn = () => {
             }).catch(err => {
                 placeErrorOnInputs(err.response.data)
             });
-        } else {
-            await axios.get(`${API_URL}/api/v1/managers?email=${email}`)
-                .then(res => {
-                    if (res.data.password === password) {
-                        return navigate("/home");
-                    } else {
-                        placeErrorOnInputs("Password is incorrect.")
-                    }
-                }).catch(err => {
-                    placeErrorOnInputs(err.response.data)
-                });
-        }
     }
 
     return (

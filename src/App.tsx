@@ -1,7 +1,8 @@
-import React from 'react';
+import {useState} from 'react';
 
 import LandingPage from "./components/LandingPage";
 import LogIn from './components/LogIn';
+import  AppContext from "./Context";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,25 +11,27 @@ import {
 import Signup from './components/Signup';
 
 function App() {
+  const [user, setUser] = useState({});
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route 
-            path="/"
-            element={<LandingPage/>}
-          />
-          <Route
-            path="/login"
-            element={<LogIn/>}
-          />
-          <Route
-            path="/signup"
-            element={<Signup/>}
-          />
-        </Routes>
-      </Router>
-    </>
+      <AppContext.Provider value={{ user, setUser }} >
+
+        <Router>
+          <Routes>
+            <Route 
+              path="/"
+              element={<LandingPage/>}
+            />
+            <Route
+              path="/login"
+              element={<LogIn/>}
+            />
+            <Route
+              path="/signup"
+              element={<Signup/>}
+            />
+          </Routes>
+        </Router>
+      </AppContext.Provider>
   );
 }
 
