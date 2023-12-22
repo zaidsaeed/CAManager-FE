@@ -1,4 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type AppContextState = {
-    user: Object;
-    setUser: (user : Object) => void;
-}
+  user: {
+    email: String;
+  };
+  setUser: Dispatch<SetStateAction<{ email: string }>>;
+};

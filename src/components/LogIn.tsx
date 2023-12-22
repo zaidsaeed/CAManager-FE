@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./LogIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AppContext from "../Context";
+import { AppContext } from "../Context";
 const API_URL = "https://camanager.onrender.com";
 
 const ACCOUNT_TYPE_MANAGER = "manager";
