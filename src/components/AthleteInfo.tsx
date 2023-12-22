@@ -3,8 +3,12 @@ import UserAddressModal from "./AthleteInfoComponents/UserAddressModal";
 import "./AthleteInfo.css";
 const AthleteInfo = () => {
   return (
-    <>
-      <div className="accordion" id="accordionExample">
+    <div className="athleteinfo-container">
+      <div className="athleteinfo-header">
+        <div className="athleteinfo-text">Athlete Info</div>
+        <div className="athleteinfo-underline"></div>
+      </div>
+      <div className="athleteinfo-accordion accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
             <button
@@ -92,7 +96,7 @@ const AthleteInfo = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

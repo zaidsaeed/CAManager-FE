@@ -1,3 +1,34 @@
-.accordion {
-  padding: 25px;
+.athleteinfo-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background: #fff;
+  width: 600px;
+}
+
+.athleteinfo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.athleteinfo-text {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.athleteinfo-underline {
+  width: 25%;
+  height: 6px;
+  background: #1aa0fa;
+  border-radius: 9px;
+}
+
+.athleteinfo-accordion {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
 }
